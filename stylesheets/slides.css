@@ -1,0 +1,117 @@
+/* 
+	Resets defualt browser settings
+	reset.css
+*/
+
+
+/*
+	Page style
+*/
+
+
+
+#container {
+	width:1200px;
+	margin:40px auto;
+	position:relative;
+}
+
+#slides {
+	position:relative;
+	float: left;
+	left: 100px
+}
+
+#slides .slidesContainer {
+	background:#fff;
+	border:8px solid #fff;
+	margin-left:-8px;
+	box-shadow: 0 2.5px 5px rgba(0,0,0,.1);
+}
+
+/*
+	Next/prev buttons
+*/
+
+#slides .slidesNext,#slides .slidesPrevious {
+	position:absolute;
+	top:134px;
+	left:-40px;
+	width:24px;
+	height:0;
+	padding-top:32px;
+	display:block;
+	z-index:101;
+	overflow:hidden;
+	background:url(../images/navigation-previous.png) no-repeat 0 0;
+}
+
+#slides .slidesNext {
+	left:920px;
+	background:url(../images/navigation-next.png) no-repeat 0 0;
+}
+
+/*
+	Pagination
+*/
+
+.slidesPagination {
+	position: relative;
+	float:left;
+	top: 10px;
+	left: 45%;
+}
+
+.slidesPagination li {
+	float:left;
+	margin:0 1px;
+	list-style:none;
+}
+
+.slidesPagination li a {
+	display:block;
+	width:14px;
+	height:0;
+	padding-top:14px;
+	background-image:url(../images/pagination.png);
+	background-position:0 0;
+	overflow:hidden;
+}
+
+.slidesPagination li.slidesCurrent a {
+	background-position:0 -14px;
+}
+
+.current_slide {
+	font:bold 10px/1.33 sans-serif;
+	float:left;
+	margin-top:12px;
+}
+
+.controls {
+	display:block;
+	margin-top:12px;
+	float:left;
+	color:#333;
+	font:bold 10px/1.33 sans-serif;
+	margin-right:10px;
+}
+
+
+
+
+/*********************
+my adds*/
+
+#slides  p{
+	position: absolute !important;
+	float: left;
+	width: 250px;
+	top: 5px;
+	left: 590px;
+}
+#slides  img{
+	position: relative;
+	float: left;
+
+}
