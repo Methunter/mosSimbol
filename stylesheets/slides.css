@@ -9,7 +9,6 @@
 */
 
 
-
 #container {
 	width:1200px;
 	margin:40px auto;
@@ -17,9 +16,11 @@
 }
 
 #slides {
+	left: 40px;
+	width: 880px;
 	position:relative;
 	float: left;
-	left: 100px
+	height: 360px;
 }
 
 #slides .slidesContainer {
@@ -114,4 +115,28 @@ my adds*/
 	position: relative;
 	float: left;
 
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {
+	#container {
+		width:700px;
+		margin:40px 0px;
+		position:relative;
+	}
+	#slides .slidesNext {
+		left:570px;
+	}
+	#slides {
+		left: 50px;
+	}
+	#slides  img{
+		width: 50%;
+		height: 50%;
+	}
+	
+#slides  p{
+	float: left;
+	width: 250px;
+	top: 5px;
+	left: 290px;
+}
 }

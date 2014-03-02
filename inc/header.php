@@ -6,19 +6,13 @@ if (!isset($_SESSION['count'])) {
 } else {
   $_SESSION['count']++;
 }
-header('Content-Type: text/html; charset=UTF8');
-/*
+header('Content-Type: text/html; charset=UTF-8');
 include_once($_SERVER['DOCUMENT_ROOT']."/inc/class.page.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/inc/class.debug.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/inc/class.menu.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/inc/functions.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/inc/class.database.php");
-*/
-include_once("class.page.php");		 
-include_once("class.debug.php");	 
-include_once("class.menu.php");		 
-include_once("functions.php");		 
-include_once("class.database.php");	 
+
 ?>
 
 	<!DOCTYPE html>
@@ -42,13 +36,12 @@ include_once("class.database.php");
 ================================================== -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 		<meta name="format-detection" content="telephone=yes" />
+		
 <!-- CSS
 ================================================== -->
-		
-		<link rel="stylesheet" href="../stylesheets/animate.css" />
-		<link rel="stylesheet" href="../stylesheets/style.css" />
-		<link rel="stylesheet" href="../stylesheets/slides.css" />
-		<link rel="stylesheet" href="../stylesheets/littleScreen.css" /> 
+		<link rel="stylesheet" href="/stylesheets/style.css">
+		<link rel="stylesheet" href="/stylesheets/slides.css">
+		<link rel="stylesheet" href="/stylesheets/oddScreen.css"> 
 		
 	
 		
@@ -74,10 +67,10 @@ include_once("class.database.php");
 	</head>
 	<body>
 		<header>
-		<a href="/index.php"><img src="/images/logo.gif" id='img'></a>
+		<a href="/index.php"><img src="/images/logo.gif" id='img' alt="MosSimbl" /></a>
 			<h1 id="phone">
 				<a href="tel:+7-495-502 28 80"><span style="color:#777777">
-					+7 (495)</span> 502 28 80
+					+7&nbsp(495)</span> 502-28-80
 				</a>
 			</h1><br />
 	<?php
@@ -86,7 +79,7 @@ include_once("class.database.php");
 	$page=new Page;
 	$menu=new Menu;
 	$menu->nest();
-	echo "<h1 id=\"foldersLevel\">" . $menu->level."<h1>";
+	echo "<h1 id=\"foldersLevel\">" . $menu->level."</h1>";
 	
 
 //echo "http refer ". $_SERVER['HTTP_REFERER'] .  " !accept! ".$_SERVER['PHP_SELF']." <br />";

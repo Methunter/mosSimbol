@@ -6,8 +6,11 @@
 	font-family: myTah;
 	margin: 0px;
 }
+body{
+	
+}
 header{
-	background-image: url(/images/logo.gif) ;
+
 	background-repeat: no-repeat;
 	background-position: 5% 50%;
 	border-bottom: 1px solid #325085;
@@ -23,22 +26,46 @@ header{
 	position: relative;
 	float: left;
 	width: 100%;
-	min-height: 600px;
+	min-height: 750px;
+	
 }
 #content{
-	padding: 1% 0% 5% 20%;
+	padding: 30px 0px 40px 280px;
+	max-width: 960px;
+}
+
+#nest{
+	position: relative;
+	float: left;/*
+
+	bottom: -15px;
+	left: 170px;
+*/
+	z-index: 1000;
+}
+#oneLevelDown, #twoLevelsDown{
+	text-align: center;
+	font-size: 1.5em;
+	width: 100%;
+
+
+}
+#oneLevelDown li, #twoLevelsDown li{
+	display: inline-block; /* Отображать как строчный элемент */
+    margin-right: 80px; /* Отступ слева */
+    padding: 5px; 
+    white-space: pre;
 }
 
 footer{
 	position: relative;
+	float: left;
 	bottom: 0px;
 	text-align: center;
 	border-top: 1px solid #9e4e46;
 	padding-top: 20px;
-	padding-bottom: 20px;
-	position: relative;
-	float: left;
 	width: 100%;
+	height: 100px;
 }
 img#img{
 	position: relative;
@@ -46,9 +73,7 @@ img#img{
 	left: 55px;
 	top:13px;
 }
-#navItem{
-	line-height: 3em;
-}
+
 
 a:link{
 	color: inherit;
@@ -63,25 +88,32 @@ a:visited{
 	padding-left: 4%;
 	background: url(../images/phone.gif) no-repeat 0% 110%;
 }
-
-
-
-
 #text{
 	position: relative;
-	left: 39%;
+	left: 450px;
 	width: 50%;
 }
 #mapborder{
 	border:10px solid white;
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
-	width:400px;
+	width:	380px;
+	height: 380px;
 	position: relative;
-	top:-110px;
+	top: -360px;
 }
 #map{
-	width: 400px;
-	height: 400px;
+	width: 380px;
+	height:380px;
+	background-image: url("/images/map.gif");
+}
+#info{
+	position: relative;
+	float: left;
+	top: -370px;
+}
+#info img{
+	width: 560px;
+	margin-top: 10px;
 }
 #ceotalk{
 	text-align: justify;
@@ -90,6 +122,8 @@ a:visited{
 #rest{
 	position: relative;
 	float: left;
+	left: 10px;
+	top:80px;
 }
 
 /* Navigation
@@ -99,12 +133,15 @@ nav{
 	position: relative;
 	float: left;
 	top: 30px;
-	left:4.35%;
+	left:55px;
 	border: 1px solid #dad7d1;
 	width: 198px;
 	text-align: center;
 	box-shadow: 0px 20px 10px -13px rgba(0,0,0,.7);
 
+}
+#navItem{
+	line-height: 3em;
 }
 nav>div{
 	border-top: 1px solid white;
@@ -112,10 +149,10 @@ nav>div{
 h3:not(#hiden){
 	border-top:1px solid #faf8f4;
 	border-bottom: 1px solid #e0dbce;
-	width: 178px;
-	margin: 0 10px;
+	width: 160px;
+	margin: 0 auto;
 	height: 40px;
-
+	padding-top: 10px;
 	}
 h3:last-child{
 	border-bottom: none ;
@@ -129,8 +166,8 @@ h3:hover{
 }
 nav p{
 	background: #d4d2cc;
-	width: 168px;
-	margin: 0 15px;
+	width: 170px;
+	margin: 0px auto;	
 	font-size: .8em;
 	text-decoration: underline;
 }
@@ -199,11 +236,16 @@ nav p{
 	float: left;
 	width: 28%;
 	height: 350px;
-	margin-bottom: 10px;
-	margin-left: 30px;
-	margin-right: 20px;
+	margin:  40px 20px 10px 30px;
 	padding: 0px !important;
 }
+/*
+
+margin-bottom: 10px;
+margin-left: 30px;
+margin-right: 20px;
+margin-top: 40px;
+*/
 .main{
 	position: relative;
 	float: left;
@@ -359,10 +401,10 @@ button#buy, #reserve{
 	border-radius: 5px;
 	font-size: 1.2em;
 	background: #e6e6e6; /* Old browsers */
-	background: -moz-linear-gradient(top,  #e6e6e6 0%, #c8c8c8 48%, #969696 49%, #e6e6e6 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e6e6e6), color-stop(48%,#c8c8c8), color-stop(49%,#969696), color-stop(100%,#e6e6e6)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #e6e6e6 0%,#c8c8c8 48%,#969696 49%,#e6e6e6 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #e6e6e6 0%,#c8c8c8 48%,#969696 49%,#e6e6e6 100%); /* Opera 11.10+ */
+	[if Gecko]	background: -moz-linear-gradient(top,  #e6e6e6 0%, #c8c8c8 48%, #969696 49%, #e6e6e6 100%); /* FF3.6+ */
+	[if Webkit]background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e6e6e6), color-stop(48%,#c8c8c8), color-stop(49%,#969696), color-stop(100%,#e6e6e6)); /* Chrome,Safari4+ */
+	[if Webkit]background: -webkit-linear-gradient(top,  #e6e6e6 0%,#c8c8c8 48%,#969696 49%,#e6e6e6 100%); /* Chrome10+,Safari5.1+ */
+	[if ! Opera]	background: -o-linear-gradient(top,  #e6e6e6 0%,#c8c8c8 48%,#969696 49%,#e6e6e6 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  #e6e6e6 0%,#c8c8c8 48%,#969696 49%,#e6e6e6 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #e6e6e6 0%,#c8c8c8 48%,#969696 49%,#e6e6e6 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#e6e6e6',GradientType=0 ); /* IE6-9 */
@@ -372,6 +414,14 @@ button#buy, #reserve{
 
 
 
+.clearfix:after {
+  display: inline-block;
+  line-height: 0;
+  content: '';
+}
+.clearfix:after {
+  clear: both;
+}
 
 
 

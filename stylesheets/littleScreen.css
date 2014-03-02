@@ -1,0 +1,250 @@
+@media 	only screen and (min-device-width : 768px) 
+					and (max-device-width : 1024px)
+					and (orientation : landscape) 
+					and (-webkit-min-device-pixel-ratio: 2) { 	/* для ipad rethina display, orientation : landscape*/
+	body{
+		max-width: 1024px;
+	}
+	#room{
+		min-width: 768px;
+		max-width: 1024px;
+	}
+	#content{
+		padding-left: 280px;
+	}
+	#map {
+        width: 200px;
+        height:200px;
+    }
+	#serch{
+		border-radius: 21px;
+		border:1px solid #d2d0c9;
+		border-top: 1px solid #7f7f7f;
+		box-shadow: 0px 2px 2px 0 rgba(255,255,255,1);
+		font-size: 1em;
+		width: 158px;
+		margin: 10px 10px;
+	}
+}
+@media 	only screen and (min-width : 768px) 
+					and (max-width : 1024px) 
+					and (orientation : landscape) {						/* для прочих айпадов(надо ещё посмотреть расширения для других таблеток)	 */
+	body{
+		max-width: 1024px;
+	}
+	#room{
+		min-width: 768px;
+		max-width: 1024px;
+	}
+	#content{
+		padding-left: 280px;
+	}
+	#mapborder{
+        width: 200px;
+        height:200px;	
+	}
+	#map {
+        width: 200px;
+        height:200px;
+    }
+	#serch{
+		border-radius: 21px;
+		border:1px solid #d2d0c9;
+		border-top: 1px solid #7f7f7f;
+		box-shadow: 0px 2px 2px 0 rgba(255,255,255,1);
+		font-size: 1em;
+		width: 158px;
+		margin: 10px 10px;
+	}
+}
+@media 	only screen and (max-device-width : 768px)  
+					and (orientation: portrait) 
+					and (-webkit-min-device-pixel-ratio: 2) {
+	body{
+		width: 768px;
+	}
+	#room{
+		max-width: 768px;
+	}
+	#content{
+		padding-left: 260px;
+	}
+	#oneLevelDown, #twoLevelsDown{
+		text-align: center;
+		font-size: 1em;
+		width: 100%;
+	}
+	#oneLevelDown li, #twoLevelsDown li{
+		display: inline-block; /* Отображать как строчный элемент */
+	    margin-right: 40px; /* Отступ слева */
+	    padding: 5px; 
+	    white-space: pre;
+	}
+	
+	#serch{
+		border-radius: 2px;
+		border:1px solid #d2d0c9;
+		border-top: 1px solid #7f7f7f;
+		box-shadow: 0px 2px 2px 0 rgba(255,255,255,1);
+		font-size: 1em;
+		width: 158px;
+		margin: 10px 10px;
+	}
+}
+/*
+	TEST TEST!!
+ */
+@media all	and (min-width : 768px) 
+			and (max-width : 1024px)
+			and (orientation : portrait) {						/* для теста ipad'ского разрешения на экране. */
+	body{
+		max-width: 1024px;
+	}
+	#room{
+		max-width: 1024px;
+	}
+	#content{
+		padding-left: 260px;
+	}
+	nav {
+	    position: relative;
+	    float: left;
+	    top: 30px;
+	    border: 1px solid #DAD7D1;
+	    width: 158px;
+	    text-align: center;
+	    box-shadow: 0px 20px 10px -13px rgba(0, 0, 0, 0.7);
+	    left: 10px;
+	}
+	nav h3{
+		border-top: 1px solid #FAF8F4;
+	    border-bottom: 1px solid #E0DBCE;
+	    width: 138px !important;
+	}
+	#serch {
+	    border-radius: 2px;
+	    border-right: 1px solid #D2D0C9;
+	    border-width: 1px;
+	    border-style: solid;
+	    border-color: #7F7F7F #D2D0C9 #D2D0C9;
+	    -moz-border-top-colors: none;
+	    -moz-border-right-colors: none;
+	    -moz-border-bottom-colors: none;
+	    -moz-border-left-colors: none;
+	    border-image: none;
+	    box-shadow: 0px 2px 2px 0px #FFF;
+	    font-size: 1.5em;
+	    width: 128px;
+	    margin: 10px;
+	}
+	#button {
+	    margin: 10px auto;
+	    border-width: 1px;
+	    border-style: solid;
+	    border-color: #BDB7A9 #BDB7A9 #706F6A;
+	    -moz-border-top-colors: none;
+	    -moz-border-right-colors: none;
+	    -moz-border-bottom-colors: none;
+	    -moz-border-left-colors: none;
+	    border-image: none;
+	    background: linear-gradient(to bottom, #EFEBE0 0%, #BDB7A9 99%) repeat scroll 0% 0% transparent;
+	    border-radius: 4px;
+	    height: 44px;
+	    width: 100px;
+	}
+	#slides {
+	    left: -30px;
+	    width: 495px;
+	    height: 430px;
+	}
+	#slides .slidesContainer {
+	    width: inherit;
+	    height: inherit !important;
+	    overflow: hidden;
+	    position: inherit;
+	}
+	#slides .slidesControl{
+		height: inherit !important;
+		overflow: hidden;
+		position: inherit;
+		width: inherit;
+	}
+	#slides .slidesControl>div{
+	    position: inherit;
+	    top: 0px;
+	    left: inherit;
+	    z-index: 0;
+	    display: none;
+	}
+	#slides img {
+	    width: 495px;
+	}
+	#slides p {
+	    position: relative !important;
+	    float: left;
+	    width: inherit;
+	    top: inherit;
+	    left: 0px;
+	}
+	#slides .slidesPrevious {
+		left: 0px;
+		padding: 10px 10px 10px 10px;
+		width: 44px;
+		height: 44px;
+	}
+	#slides .slidesNext {
+	    left: 471px !important;
+	    position: absolute;
+	    top: 134px;
+	    width: 44px;
+	    height: 44px;
+	    padding-top: 32px;
+	    display: block;
+	    z-index: 101;
+	    overflow: hidden;
+	}
+	#oneLevelDown, #twoLevelsDown{
+		text-align: center;
+		font-size: 1em;
+		width: 100%;
+	}
+	#oneLevelDown li, #twoLevelsDown li{
+		display: inline-block; /* Отображать как строчный элемент */
+	    margin-right: 40px; /* Отступ слева */
+	    padding: 5px; 
+	    white-space: pre;
+	}
+	#mapborder {
+		border:10px solid white;
+		box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
+		top: -420.7px;
+		width: 200px;
+		height: 200px;
+		position: relative;
+		top:-420px;
+		left: -70px;
+	}
+	#map {
+		width: 200px;
+		height:200px;
+		background-image: url("/images/map.gif");
+		background-position: center center;
+	}
+	#text {
+	    position: relative;
+	    left: 165px;
+	    width: 330px;
+	}
+	#info{
+		position: relative;
+		float: left;
+		top: -220px;
+
+	}
+	#info img{
+		width: 450px;
+	}
+
+}
+
+
