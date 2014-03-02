@@ -583,7 +583,7 @@
 
 					position: "relative",
 					left:"",// window.innerWidth > 1025 ?  (window.innerWidth *.061)+10 : "",
-					overflow: "hidden",
+					overflow: "visible",
 					padding: 10
 				});
 							
@@ -602,7 +602,7 @@
 			this.slidesContainer = this.element.children().not(".slidesNavigation").wrapAll( "<div class='slidesContainer'>" ).parent().css({
 				width:  "inherit",
 				height: "",//window.innerWidth > 1025 ?  this.options.height : "" ,
-				overflow: this.options.slide.browserWindow ? "visible" : "hidden",
+				overflow: /* this.options.slide.browserWindow ? "visible" : */ "hidden",
 				position: "relative",
 				left: "ingerit" //this.options.slide.browserWindow ? "" : (window.innerWidth - this.options.width) / 32
 			});

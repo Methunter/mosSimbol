@@ -7,7 +7,7 @@
 			<a href="/О%20Компании/dir.php"><p>Обращение директора</p></a>
 			<a href="/О%20Компании/tech.php"><p>Технологии</p></a>
 			<a href="/О%20Компании/franch.php"><p>Стать нашим представительством</p></a>
-			<a href="/О%20Компании/job.php"><p>Карьера в моссимвол<p></a>
+			<a href="/О%20Компании/job.php"></p>Карьера в моссимвол<p></a>
 		</div>
 	</div>	
 
@@ -33,7 +33,7 @@
 	<h3 id="none"></h3>
 
 
-	<input id="serch" type="serch" name="serch" placeholder="Поиск">
+	<input id="serch" type="text" name="serch" placeholder="Поиск">
 	<input id="button" type="submit" value="Найти">
 
 </nav>
