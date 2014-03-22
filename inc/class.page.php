@@ -5,7 +5,7 @@ class  Page {
 	public $iAmIn;//getcwd()
 	public $content=array();//goGetIt()
 	public $types;
-	public $exts = array("jpg","png","gif"); 
+	public $pics = array("jpg","png","gif"); 
 	public $folderItem;
 	public $files=array();
 	public $dir;
@@ -25,6 +25,9 @@ class  Page {
 		}			
 	}
 */
+	function getExtension($filename) {
+    return end(explode(".", $filename));
+  }
 
 	function showFoldersList(){
 		$this->d = dir(".");
@@ -49,55 +52,69 @@ class  Page {
 	}
 	
 	function showItToMe(){
-
-		$this->d = dir(".");
-		while (false !== ($entry = $this->d->read())){
+		$d = dir(".");
+		while (false !== ($entry = $d->read())){
 			if(is_dir($entry)
 			&& $entry!=="." 
 			&& $entry!==".."){
-				$this->dom = new DOMDocument('1.0', 'utf-8');
-				$root = $this->dom->createElement('div');
+				$dom = new DOMDocument('1.0', 'utf-8');
+				$root = $dom->createElement('div');
 				$root->setAttribute('class','signItem');
-				$main = $this->dom->createElement('div');
-				$main->setAttribute('class','main');
-				$title=$this->dom->createElement("h2");
-				$text = $this->dom->createTextNode("$entry");
+				$title=$dom->createElement("h2");
+				$link=$dom->createElement("a");
+				$link->setAttribute("href",$entry);
 				$title->setAttribute("class","title");
+				$text = $dom->createTextNode("$entry");
 				$title->appendChild($text);
-				$about=$this->dom->createElement("p");
-				$mng=$this->dom->createElement("ul");
-				$mng->setAttribute("class","minigal");	
-				chdir("$entry");
+				$mainPic=$dom->createElement("img");
+				$mainPic->setAttribute("class","titlePic");
+				chdir($entry);
 				$d1=dir(".");
 				while (false !== ($entry1 = $d1->read())){
-					if (!is_dir($entry1)
-			   		&& $entry1 !=="about.txt"){
-						$img=$this->dom->createElement("img");
-						$img->setAttribute("src", $entry."/".$entry1);
-						$li=$this->dom->createElement("li");
-						$li->appendChild($img);
-						$mng->appendChild($li);
-						$img->setAttribute("class","pic");
+					if($this->getExtension($entry1)=="JPG"){
+						if(strcasecmp($entry1, "main")){
+							$mainPic->setAttribute("src","$entry/$entry1");
+							$link->appendChild($mainPic);
+						}
 					}
-					if($entry1 == "about.txt"){
-				   		$txtAbout=file("about.txt");
-				   		$txtAbout= $txtAbout[0];
-				   		$textAbout=$this->dom->createTextNode($txtAbout);
-				   		$about->appendChild($textAbout);
-				   		$about->setAttribute("class","about");
-				   	}
-				   	$main->appendChild($about);
-					$main->insertBefore($mng, $about);
 				}
-				$root->appendChild($main);
-				$root->appendChild($title);
-				$this->dom->appendChild($root);
-				$d1->close();
-			   	chdir("..");
-			   	echo $this->dom->saveXML();   	
-		   }
+				$link->appendChild($title);
+				$root->appendChild($link);
+				$dom->appendChild($root);
+				chdir("..");
+				echo $dom->saveXML();
+			}
 		}
-		$this->d->close();
+	}
+				
+	function tellAboutCurrentItem(){
+		$d = dir(getcwd());
+		while (false !== ($entry = $d->read())){
+			if($this->getExtension($entry)==="txt"){
+				$this->dom = new DOMDocument('1.0', 'utf-8');
+				$root = $this->dom->createElement('div');
+				$root->setAttribute('id','aboutItem');
+				$txtAbout=file("about.txt");
+				$txtAbout= $txtAbout[0];
+				$textAbout=$this->dom->createTextNode($txtAbout);
+				$title=$this->dom->createElement("h2");
+				$path=basename(getcwd());
+				$titleText=$this->dom->createTextNode($path);
+				$title->appendChild($titleText);
+				$about=$this->dom->createElement("p");
+				$about->setAttribute("class","about");
+				$title->setAttribute("id","title");
+				$about->appendChild($textAbout);	
+				$root->appendChild($title);
+				$root->appendChild($about);
+				$this->dom->appendChild($root);
+				
+			   	echo $this->dom->saveXML();
+
+			}
+		
+		}
+$d->close();
 	}
 	static function whereAmI(){
 		echo"<br /><br /><br />************************************ <br />";

@@ -11,9 +11,5 @@
 
 
 <!-- мои скрипты -->
-<script type='text/javascript' src='/js/script.js'></script>
-<script type='text/javascript' src='/js/jquery.easing.1.3.js'></script>
-<script type="text/javascript" src="/js/mainCarousel.js"></script>
-<script type="text/javascript" src="/js/jquery.touchSwipe.min.js"></script>
 </body>
 </html>

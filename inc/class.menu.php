@@ -76,6 +76,9 @@ class Menu{//класс, формирующий меню...
 				array_shift($relpath);										//
 				array_shift($relpath);										//
 				array_shift($relpath);										//
+//нужны только на сервере:
+//				array_shift($relpath);										//
+//				array_shift($relpath);										//
 				$relpath= implode("/", $relpath);							//
 				$typeLink->setAttribute("href","/".$relpath."/".$entry);	//
 				$typeText=$dom->createTextNode($entry);						//
@@ -111,6 +114,9 @@ class Menu{//класс, формирующий меню...
 				$relpath=explode('/', $relpath);
 				array_shift($relpath);
 				array_shift($relpath);
+//нужны только на сервере
+//				array_shift($relpath);										//
+//				array_shift($relpath);										//
 				array_shift($relpath);
 				array_shift($relpath);
 				array_shift($relpath);
@@ -129,7 +135,49 @@ class Menu{//класс, формирующий меню...
 		$d->close();
 		chdir($origin);
 	}
-
+	function showThreeLevelsDown(){
+		$d=dir(".");
+		$origin=getcwd();
+		chdir("..");
+		$d=dir(".");
+		chdir("..");
+		$d=dir(".");
+		chdir("..");
+		$d=dir(".");
+		$dom=new DOMDocument;
+		$root = $dom->createElement("div");
+		$root->setAttribute("id","threeLevelsDown");
+		$type=$dom->createElement("ul");
+		
+		while(false!==($entry=$d->read())){
+			if(is_dir($entry) && $entry!="." && $entry!=".."){
+				$typeItem=$dom->createElement("li");
+				$typeLink=$dom->createElement("a");
+				$relpath=getcwd();
+				$relpath=explode('/', $relpath);
+				array_shift($relpath);
+				array_shift($relpath);
+				array_shift($relpath);
+//нужны только на сервере
+//				array_shift($relpath);										//
+//				array_shift($relpath);										//
+				array_shift($relpath);
+				array_shift($relpath);
+				$relpath= implode("/", $relpath);
+				$typeLink->setAttribute("href","/".$relpath."/".$entry);
+				$typeText=$dom->createTextNode($entry);
+				$typeLink->appendChild($typeText);
+				$typeItem->appendChild($typeLink);
+				$type->appendChild($typeItem);
+				$root->appendChild($type);
+			}
+		}
+		$dom->appendChild($root);
+		echo $dom->saveXML();
+		echo "<div class=\"clearfix\"></div>";
+		$d->close();
+		chdir($origin);
+	}
 
 		
 	

@@ -7,12 +7,12 @@ if (!isset($_SESSION['count'])) {
   $_SESSION['count']++;
 }
 header('Content-Type: text/html; charset=UTF-8');
-include_once("inc/class.page.php");
-include_once("inc/class.debug.php");
-include_once("inc/class.menu.php");
-include_once("inc/functions.php");
-include_once("inc/class.database.php");
-include_once("inc/class.order.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/inc/class.page.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/inc/class.debug.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/inc/class.menu.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/inc/functions.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/inc/class.database.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/inc/class.order.php");
 
 ?>
 <!DOCTYPE html>
@@ -29,7 +29,6 @@ include_once("inc/class.order.php");
     <!-- Basic Page Needs
 ================================================== -->
     <meta charset="utf-8">
-
     <title>Моссимвол</title>
     <meta name="description" content="значки">
     <meta name="author" content="Dmithiy Okhotnikov me3sa@me.com">
@@ -37,12 +36,26 @@ include_once("inc/class.order.php");
 ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="format-detection" content="telephone=yes">
+
+	<!-- JScripts
+==================================================================================== -->
+    <script src="/js/jquery-1.10.2.min.js" 		type="text/javascript"></script>
+    <script src="/js/fromTheInternet.js" 		type="text/javascript"></script>
+    <script src="/js/functions.js" 				type="text/javascript"></script>
+	<script src="/js/agile_carousel.alpha.js"	type="text/javascript"></script>
+	<script src="/js/mainCarousel.js"			type="text/javascript"></script>
+    <script src="/js/script.js" 				type="text/javascript"></script>
+
+	
+
     <!-- CSS
 ================================================== -->
-    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
-    <link rel="stylesheet" href="stylesheets/slides.css" type="text/css">
-    <link rel="stylesheet" href="stylesheets/oddScreen.css" type="text/css">
-	<link rel="stylesheet" href="stylesheets/agile_carousel.css">
+    <link rel="stylesheet" href="/stylesheets/style.css" 				type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/slides.css" 				type="text/css" />
+<!--     <link rel="stylesheet" href="/stylesheets/oddScreen.css" 			type="text/css" /> -->
+	<link rel="stylesheet" href="/stylesheets/agile_carousel.css"		type="text/css" />
+<!-- 	<link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css"	type="text/css" /> -->
+<!-- 	<link rel="stylesheet" href="/stylesheets/bootstrap.css"			type="text/css" /> -->
 
     <!-- Favicons
 ================================================== -->
@@ -50,14 +63,7 @@ include_once("inc/class.order.php");
     <link rel="apple-touch-icon" href="                 /images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="   /images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href=" /images/apple-touch-icon-114x114.png">
-    <!-- JScripts
-================================================== -->
-
-    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="js/fromTheInternet.js" type="text/javascript"></script>
-    <script src="js/script.js" type="text/javascript"></script>
-    <script src="js/functions.js" type="text/javascript"></script>
-	<script src="js/agile_carousel.alpha.js"></script>
+   
 </head>
 
 <body>
@@ -65,7 +71,7 @@ include_once("inc/class.order.php");
         <a href="/index.php"><img src="/images/logo.gif" id='img' alt="MosSimbl"></a>
 
         <h1 id="phone"><a href="tel:+7-495-502-28-80"><span style="color:#777777">+7&nbsp;(495)</span> 502-28-80</a></h1><br>
-        <?php
+<?php
             
             
             $page=new Page;
@@ -74,8 +80,9 @@ include_once("inc/class.order.php");
             echo "<h1 id=\"foldersLevel\">" . $menu->level."</h1>";
             
 
-        //echo "http refer ". $_SERVER['HTTP_REFERER'] .  " !accept! ".$_SERVER['PHP_SELF']." <br />";
-        ?>
+      //  echo "http refer ". $_SERVER['HTTP_REFERER'] .  " !accept! ".$_SERVER['PHP_SELF']." <br />";
+?>
+
     </header>
 
     <div id='room'>

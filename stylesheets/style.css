@@ -25,7 +25,7 @@ header{
 	box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,.2);
 	position: relative;
 	float: left;
-	width: 100%;
+	width: 1024px;
 	min-height: 750px;
 	
 }
@@ -43,14 +43,43 @@ header{
 */
 	z-index: 1000;
 }
-#oneLevelDown, #twoLevelsDown{
+.arrow_box {
+	position: relative;
+	background: #ece9df;
+	border: 1px solid #fff;
+}
+.arrow_box:after, .arrow_box:before {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(236, 233, 223, 0);
+	border-left-color: #ece9df;
+	border-width: 10px;
+	margin-top: -10px;
+}
+.arrow_box:before {
+	border-color: rgba(255, 255, 255, 0);
+	border-left-color: #fff;
+	border-width: 11px;
+	margin-top: -11px;
+}
+
+#oneLevelDown, #twoLevelsDown, #threeLevelsDown{
 	text-align: center;
 	font-size: 1.5em;
 	width: 100%;
 
 
 }
-#oneLevelDown li, #twoLevelsDown li{
+#oneLevelDown li, #twoLevelsDown li, #threeLevelsDown li{
 	display: inline-block; /* Отображать как строчный элемент */
     margin-right: 80px; /* Отступ слева */
     padding: 5px; 
@@ -146,7 +175,7 @@ nav{
 nav>div{
 	border-top: 1px solid white;
 }
-h3:not(#hiden){
+nav > div > a > h3:not(#hiden), nav > a > h3:not(#hiden){
 	border-top:1px solid #faf8f4;
 	border-bottom: 1px solid #e0dbce;
 	width: 160px;
@@ -154,11 +183,11 @@ h3:not(#hiden){
 	height: 40px;
 	padding-top: 10px;
 	}
-h3:last-child{
+nav  a > h3:last-child{
 	border-bottom: none ;
 	height: none ;
 }
-h3:hover{
+nav  a > h3:hover{
 	background: #cbc5b7;
 }
 #none{
@@ -220,69 +249,35 @@ nav p{
 #catalog a{
 	color: #4b82b6;
 }
+
+.signItem{
+	position: relative;
+	float: left;
+	width: 250px;
+	margin:  40px 20px 10px 30px;
+	padding: 0px !important;
+/* 	border: 3px solid #ece9df; */
+/* 	box-shadow: 0px 20px 10px -13px rgba(0,0,0,.7); */
+
+}
+.signItem a{
+	width: inherit;
+}
+.signItem img{
+	width: inherit;
+	padding: 3px;
+	border: 3px solid #ece9df;
+
+}
 .title{
 /* 	margin-bottom:-50px; /* отрицательный маргин, равный высоте футера */  
 	position:relative;
 	float: left;
 	padding: 10px 0px;
-	background: rgba(125,125,125,.5);
-	width: 100%;
+	width: inherit;
 	text-align: center;
 	z-index: 100;
-	border-radius: 0px 0px 10px 10px;
-}
-.signItem{
-	position: relative;
-	float: left;
-	width: 28%;
-	height: 350px;
-	margin:  40px 20px 10px 30px;
-	padding: 0px !important;
-}
-/*
 
-margin-bottom: 10px;
-margin-left: 30px;
-margin-right: 20px;
-margin-top: 40px;
-*/
-.main{
-	position: relative;
-	float: left;
-	height: 80%;
-	margin: 0px !important;
-	border: 1px solid black;
-	margin-bottom: 10px;
-	margin-left: 10px;
-
-	padding: 0px !important;
-}
-.about{
-	position: relative;
-	float: left;
-	padding-top: 10px;
-	/* top: 50px; */
-/* 	left: 310px; */
-	width: 100%;
-}
-.minigal{
-	position: relative;
-	float: left;
-	width: 100%;
-	height: 76.5%;
-	display: inline !important;
-	padding: 0px;
-	overflow: scroll;
-	border-bottom: 1px solid #325085;
-	box-shadow: 0px 3px 20px 0px black;
-}
-.minigal li{
-	display: inline;
-}
-
-.pic{
-	border-bottom: 1px solid #9e4e46;
-	width: 100%;
 }
 
 /*
@@ -339,31 +334,54 @@ margin-top: 40px;
 	background-color: rgba(70,70,70,.75);
 	width: 100% !important;
 	height: 100%;
-	z-index: 100;
+	z-index: 5000;
 }
 #pannel{
 	position: relative;
 	float: left;
 	top: 12%;
-	left: 40%;
-	border: 1px solid white;
-	border-radius: 10px;
-	padding: 30px 10px;
-	text-align: center;
+	left: 35%;
+	width: 550px;
 	box-shadow: 1px 1px 70px 5px black;
-	background: #e6e6e6; /* Old browsers */
-	background: -moz-linear-gradient(top,  #e6e6e6 0%, #c8c8c8 10%, #969696 90%, #e6e6e6 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e6e6e6), color-stop(10%,#c8c8c8), color-stop(90%,#969696), color-stop(100%,#e6e6e6)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #e6e6e6 0%,#c8c8c8 10%,#969696 90%,#e6e6e6 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #e6e6e6 0%,#c8c8c8 10%,#969696 90%,#e6e6e6 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #e6e6e6 0%,#c8c8c8 10%,#969696 90%,#e6e6e6 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #e6e6e6 0%,#c8c8c8 10%,#969696 90%,#e6e6e6 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#e6e6e6',GradientType=0 ); /* IE6-9 */
+	background: #ece9df;
+	z-index: 15001;
+
+}
+#CBHead{
+	position: relative;
+	float: left;
+	padding: 10px 20px;
+	border-bottom: 1px solid #e0dbce;
+}
+#close{
+	position: relative;
+	float: left;
+	top: -70px;
+	left: 450px;
+	text-decoration: underline;
+	cursor: pointer !important;
+}
+#CBBody{
+	position: relative;
+	float: left;
+	border-top: 1px solid #faf8f4;
+	border-bottom: 1px solid #e0dbce;
+	width: inherit;
+	height: 500px;
+	/* 	padding: 10px 20px; */
+	
+}
+#CBFooter{
+	border-top:  1px solid #faf8f4;
+	position: relative;
+	float: left;
+	width: 100%;
 }
 #name, #email, #userphone{
 	width: 90%;
 	height: 2em;
 	font-size: 1em;
+	background: url('/images/checkMarks.png') 0% 50% no-repeat;
 	
 }
 #pannel label{
@@ -372,42 +390,100 @@ margin-top: 40px;
 #checkboxes{
 	text-align: left;
 }
-button#buy, #reserve{
+button#buy, #reserve , #continue{
 	position: relative;
 	float: left;
 	top:5px;
 	width: 120px;
 	height: 44px;
+	border: 1px solid #bdb7a9;
 	border-radius: 5px;
-	font-size: 1.2em;
-	background: #e6e6e6; /* Old browsers */
-	background: -moz-linear-gradient(top,  #e6e6e6 0%, #c8c8c8 48%, #969696 49%, #e6e6e6 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e6e6e6), color-stop(48%,#c8c8c8), color-stop(49%,#969696), color-stop(100%,#e6e6e6)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #e6e6e6 0%,#c8c8c8 48%,#969696 49%,#e6e6e6 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #e6e6e6 0%,#c8c8c8 48%,#969696 49%,#e6e6e6 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #e6e6e6 0%,#c8c8c8 48%,#969696 49%,#e6e6e6 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #e6e6e6 0%,#c8c8c8 48%,#969696 49%,#e6e6e6 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#e6e6e6',GradientType=0 ); /* IE6-9 */
+	font-size: 1em;
+	background: #efebe0; /* Old browsers */
+	background: -moz-linear-gradient(top,  #efebe0 0%, #bdb7a9 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efebe0), color-stop(100%,#bdb7a9)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #efebe0 0%,#bdb7a9 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #efebe0 0%,#bdb7a9 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #efebe0 0%,#bdb7a9 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #efebe0 0%,#bdb7a9 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe0', endColorstr='#bdb7a9',GradientType=0 ); /* IE6-9 */
 
 }
+#shopList{
+	width: 520px;
+	height: 150px;
+	position: relative;
+	top: 10px;
+	background: white;
+	border: 1px solid black;
+	margin: auto;
+	overflow: scroll;
+	box-shadow: inset 0px 0px 5px rgba(50,50,50,.6);
+	z-index: 10000;
+}
+.position{
+	width: 490px;
+	height: 30px;
+	position: relative;
+	text-align:  justify;
+	padding:  10px 0px;
+	list-style: none;
+	
+}
+.position > li{
+	margin: 0px !important;
+	display: inline-block;
+
+	
+}
+.purchItem{
+	
+}
+.purchQuant{
+
+	width: 40px;
+	height: 28px;
+	top: 10px;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	line-height: 28px;
+	text-align: center;
+	right: 40px;
+}
+.morePurch , .lessPurch, .cancelPurch {
+	cursor: pointer;
+	background: no-repeat;
+	width: 20px;
+	height: 30px;
+}
+.morePurch , .lessPurch, .cancelPurch, .purchQuant{
+
+	position: absolute;
+
+
+}
+.morePurch{
+	right: 20px;
+	background: url(/images/morePurch.gif) no-repeat;
+}
+.lessPurch{
+	background: url('/images/lessPurch.gif') no-repeat;
+	right: 80px;	
+}
+.cancelPurch{
+	background: url('/images/cross.png') no-repeat;
+	background-position: 50% 50%;
+	background-size: 70%;
+	
+	width: 40px;
+	height: 30px;
+	right: -20px;
+}
+
 
 #reserve{
-	position: relative;
-	float: left;
 	top:5px;
 	left: 10px;
-	width: 180px;
-	height: 44px;
-	border-radius: 5px;
-	font-size: 1.2em;
-	background: #e6e6e6; /* Old browsers */
-	[if Gecko]	background: -moz-linear-gradient(top,  #e6e6e6 0%, #c8c8c8 48%, #969696 49%, #e6e6e6 100%); /* FF3.6+ */
-	[if Webkit]background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e6e6e6), color-stop(48%,#c8c8c8), color-stop(49%,#969696), color-stop(100%,#e6e6e6)); /* Chrome,Safari4+ */
-	[if Webkit]background: -webkit-linear-gradient(top,  #e6e6e6 0%,#c8c8c8 48%,#969696 49%,#e6e6e6 100%); /* Chrome10+,Safari5.1+ */
-	[if ! Opera]	background: -o-linear-gradient(top,  #e6e6e6 0%,#c8c8c8 48%,#969696 49%,#e6e6e6 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #e6e6e6 0%,#c8c8c8 48%,#969696 49%,#e6e6e6 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #e6e6e6 0%,#c8c8c8 48%,#969696 49%,#e6e6e6 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#e6e6e6',GradientType=0 ); /* IE6-9 */
 
 }
 
@@ -424,10 +500,25 @@ button#buy, #reserve{
 }
 
 
+/*
+	LVL 5!!!
+*/
+#aboutItem{
+	position: absolute;
+	float: left;
+	left: 900px;
+	top: 300px
+}
 
-
-
-
+#quantity{
+	border-radius: 2px;
+	border:1px solid #d2d0c9;
+	border-top: 1px solid #7f7f7f;
+	box-shadow: 0px 2px 2px 0 rgba(255,255,255,1);
+	font-size: 1.5em;
+	width: 78px;
+	margin: 10px 10px;
+}
 
 
 

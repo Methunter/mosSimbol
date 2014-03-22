@@ -1,14 +1,16 @@
-@media 	only screen and (min-device-width : 768px) 
+@media 	only handhold and (min-device-width : 768px) 
 					and (max-device-width : 1024px)
 					and (orientation : landscape) 
 					and (-webkit-min-device-pixel-ratio: 2) { 	/* для ipad rethina display, orientation : landscape*/
 	body{
 		max-width: 1024px;
 	}
+/*
 	#room{
 		min-width: 768px;
 		max-width: 1024px;
 	}
+*/
 	#content{
 		padding-left: 280px;
 	}
@@ -26,15 +28,17 @@
 		margin: 10px 10px;
 	}
 }
-@media 	only screen and (min-width : 200px) 
-					and (max-width : 767px) 
-					and (orientation : landscape) {						/* для телефонов, которые с маленькими экранами. */
+@media 	only handhold 	and (min-width : 200px) 
+						and (max-width : 767px) 
+						and (orientation : landscape) {						/* для телефонов, которые с маленькими экранами. */
 	body{
 		width: 100%;
 	}
+/*
 	#room{
 		width: 100%;
-	}
+
+	}*/
 	#content{
 		padding-left: 130px;
 	}
@@ -134,6 +138,7 @@
 	    display: block;
 	    z-index: 101;
 	    overflow: hidden;
+	    }
 	#slides .slidesPagination {
 
 	    left: 35%;
@@ -167,9 +172,9 @@
 		background-position: center center;
 	}
 	#text {
-	    position: relative;
-	    left: 165px;
-	    width: 330px;
+	    /* position: relative; */
+	    /* left: 565px; */
+	    /* width: 330px; */
 	}
 	#info{
 		position: relative;
@@ -225,9 +230,11 @@
 	body{
 		max-width: 1024px;
 	}
+/*
 	#room{
 		max-width: 1024px;
 	}
+*/
 	#content{
 		padding-left: 260px;
 	}

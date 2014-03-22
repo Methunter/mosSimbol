@@ -37,9 +37,9 @@
 #slides .slidesNext,#slides .slidesPrevious {
 	position:absolute;
 	top:134px;
-	left:-40px;
+	left: 0px;
 	width:24px;
-	height:0;
+	height:50px;
 	padding-top:32px;
 	display:block;
 	z-index:101;
@@ -48,7 +48,7 @@
 }
 
 #slides .slidesNext {
-	left:920px;
+	left:560px;
 	background:url(../images/navigation-next.png) no-repeat 0 0;
 }
 

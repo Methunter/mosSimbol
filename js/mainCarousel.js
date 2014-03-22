@@ -538,8 +538,8 @@
 			navigation: true, // [Boolean] Auto generate the naviagation, next/previous buttons
 			pagination: true, // [Boolean] Auto generate the pagination
 			effects: {
-				navigation: "slide",  // [String] Can be either "slide" or "fade"
-				pagination: "slide" // [String] Can be either "slide" or "fade"
+				navigation: "fade",  // [String] Can be either "slide" or "fade"
+				pagination: "fade" // [String] Can be either "slide" or "fade"
 			},
 			direction: "left", // [String] Define the slide direction: "Up", "Right", "Down", "left"
 			fade: {
@@ -858,19 +858,19 @@
 			}
 			
 			// Effects methods
-			if (effect === "fade") {
+		//	if (effect === "fade") {
 				this._fade({
 					next: next,
 					to: to,
 					currentSlide: currentSlide
 				});
-			} else {
-				this._slide({
-					next: next,
-					to: to,
-					currentSlide: currentSlide
-				});
-			}
+		//	} else {
+		//		this._slide({
+		//			next: next,
+		//			to: to,
+		//			currentSlide: currentSlide
+		//		});
+		//	}
 		},
 		_slide: function (navigateData) {
 			/*

@@ -37,6 +37,12 @@
     </div><script type="text/javascript">
     $(function(){
             $("#slides").slides();
+            $("#slides").slides("next","fadeTo");
+            $("#slides").slides("previous",$.fn.extend.fadeToggle);
+            
+            $("#slides").slides($.fn.extend.fadeTo,4,$.fn.extend.fadeTo);
+
+
         });
     </script><?php
         require_once(getcwd()."/inc/footer.php");

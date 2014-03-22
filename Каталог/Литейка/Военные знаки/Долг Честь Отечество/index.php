@@ -8,7 +8,13 @@
 	require_once($_SERVER["DOCUMENT_ROOT"]."/inc/page.content.php");
 
 ?>
+
+
+
 </div>	
 <?php
-	require_once($_SERVER['DOCUMENT_ROOT']."inc/footer.php");
+	require_once($_SERVER['DOCUMENT_ROOT']."/inc/footer.php");
 ?>
+
+ 
+</body></html>
