@@ -6,11 +6,17 @@
 
 
 <div id="content">
+	 	<div id="mapborder">
+	 		<div id="map">
+	 			<script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=qflFSpr1HhOXmxrci2MTEUBOVlTz-lUH&width=380&height=380"></script>
+
+	 		</div>
+	 	</div>
 	<div id="text">
  		<p>ООО «Моссимвол»</p>
  		<br />
-		<p>Телефон:
-		+7 495 502 28 80
+		<p>Телефон:<br />
+		+7 495 502 28 80<br />
 		+7 495 888 48 38</p>
 		<br />
 		<p>Мобильный:<br />
@@ -24,15 +30,13 @@
 		<br />
 		<p>Адресс:<br />
 		1123424, г. Москва, Чермякинский проезд, стр. 25</p>
-		<br />
-		<a href="javascript:sh()" style="color:#A30A0D; text-decoration:underline;">
+	</div>
+		<a id="moreTrace" href="javascript:sh()" style="color:#A30A0D; text-decoration:underline;">
 		
 		Подробнее о том как проехать на машине и на общественном транспорте
 		</a>
-	 </div>
-	 	<div id="mapborder">
-	 		<div id="map"></div>
-	 	</div>
+	 
+
 
 			<br />
 		

@@ -1,0 +1,1 @@
+name = ImageMagick: Install from Binary Distribution.htmltype = text/htmltmp_name = /private/var/tmp/phpJmPH6ierror = 0size = 29022

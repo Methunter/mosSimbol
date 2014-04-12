@@ -17,7 +17,7 @@
 
 #slides {
 	left: 40px;
-	width: 880px;
+	width: 700px;
 	position:relative;
 	float: left;
 	height: 360px;
@@ -48,7 +48,7 @@
 }
 
 #slides .slidesNext {
-	left:560px;
+	left:480px;
 	background:url(../images/navigation-next.png) no-repeat 0 0;
 }
 
@@ -107,9 +107,8 @@ my adds*/
 #slides  p{
 	position: absolute !important;
 	float: left;
-	width: 250px;
-	top: 5px;
-	left: 590px;
+	width: 200px;
+	left: 500px;
 }
 #slides  img{
 	position: relative;

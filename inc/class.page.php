@@ -25,10 +25,30 @@ class  Page {
 		}			
 	}
 */
-	function getExtension($filename) {
-    return end(explode(".", $filename));
-  }
+	function __construct(){
 
+	}	
+	function getExtension($filename) {
+   		 return end(explode(".", $filename));
+  }
+  	function folders(){
+  		$d = dir(".");
+		while (false !== ($entry = $d->read())){
+			if(is_dir($entry)
+			&& $entry!=="." 
+			&& $entry!==".."){
+				echo "$entry \n";
+			}
+		}
+  	}  	
+  	function files(){
+  		$d = dir(".");
+		while (false !== ($entry = $d->read())){
+			if(!is_dir($entry)){
+				echo "$entry \n";
+			}
+		}
+  	}
 	function showFoldersList(){
 		$this->d = dir(".");
 		$this->dom = new DOMDocument('1.0', 'utf-8');
@@ -71,7 +91,7 @@ class  Page {
 				chdir($entry);
 				$d1=dir(".");
 				while (false !== ($entry1 = $d1->read())){
-					if($this->getExtension($entry1)=="JPG"){
+					if(strtolower($this->getExtension($entry1))=="jpg"){
 						if(strcasecmp($entry1, "main")){
 							$mainPic->setAttribute("src","$entry/$entry1");
 							$link->appendChild($mainPic);
@@ -94,9 +114,9 @@ class  Page {
 				$this->dom = new DOMDocument('1.0', 'utf-8');
 				$root = $this->dom->createElement('div');
 				$root->setAttribute('id','aboutItem');
-				$txtAbout=file("about.txt");
-				$txtAbout= $txtAbout[0];
-				$textAbout=$this->dom->createTextNode($txtAbout);
+				$txtAbout=file('about.txt');
+				$myTxtAbout= $txtAbout[0];
+				$textAbout=$this->dom->createTextNode($myTxtAbout);
 				$title=$this->dom->createElement("h2");
 				$path=basename(getcwd());
 				$titleText=$this->dom->createTextNode($path);
@@ -110,17 +130,16 @@ class  Page {
 				$this->dom->appendChild($root);
 				
 			   	echo $this->dom->saveXML();
-
 			}
 		
 		}
-$d->close();
+	$d->close();
 	}
 	static function whereAmI(){
 		echo"<br /><br /><br />************************************ <br />";
 		echo "__DIR__ :    ".__DIR__."<br />";
 		echo "getcwd() :     ".getcwd()."<br />";
-		echo "Root :      $nbsp".$_SERVER['PHP_SELF']."<br />";
+		echo "php self :      $nbsp".$_SERVER['PHP_SELF']."<br />";
 		echo"************************************ <br /><br /><br /><br />";
 		
 	}
@@ -131,6 +150,7 @@ $d->close();
 	
 } // the end of a class Page
 
+$page = new Page;
 
 
 

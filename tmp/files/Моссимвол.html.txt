@@ -1,0 +1,1 @@
+name = Моссимвол.htmltype = text/htmltmp_name = /private/var/tmp/phpHrFAcWerror = 0size = 12610

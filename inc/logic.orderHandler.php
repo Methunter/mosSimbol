@@ -1,14 +1,17 @@
 <?
 	require_once($_SERVER['DOCUMENT_ROOT'].'/inc/class.database.php');
 	date_default_timezone_set('Europe/Moscow');
+	$isUpd = null;
 	$posession = array();
 	if(isset($_POST['isUpd'])){
 		$isUpd = $_POST['isUpd'];
 		$_POST['isUpd'] = 0;
-		
+		echo "is upd is equal to 1";
 	}else{
 		$isUpd = null;
+		echo "is upd is equal to null";
 	}
+	
 	for($i=0;$i!==count($_POST['name']);$i++){
 		$posession[$i] = "'".$_POST['name'][$i]."'";
 

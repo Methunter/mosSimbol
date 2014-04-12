@@ -10,11 +10,11 @@
                 // required settings
                 
                 carousel_data: data,
-                carousel_outer_height: 500,
+                carousel_outer_height: 433,
                 carousel_height: 430,
                 slide_height: 500,
-                carousel_outer_width: 600,
-                slide_width: 600,
+                carousel_outer_width: 500,
+                slide_width: 500,
                                                 
                 // end required settings
                                                 

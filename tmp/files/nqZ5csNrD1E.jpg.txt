@@ -1,0 +1,5 @@
+name = nqZ5csNrD1E.jpg
+type = image/jpeg
+tmp_name = /private/var/tmp/phpNgnbyG
+error = 0
+size = 44150

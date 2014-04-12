@@ -3,7 +3,7 @@
 /* reset styles */
 
 .agile_carousel img {border: 0;
-	width: 600px;
+	width: 500px;
 }
 
 .agile_carousel p, .agile_carousel ul, .agile_carousel ul li {
@@ -489,7 +489,7 @@ margin-right: 10px;
 /*-- .control_set_2 - includes: .conent_button --*/
 
 #flavor_2 .control_set_2 {
-left: 60px;
+left: 10px;
 bottom: 0;
 width: 480px;
 height: 112px;

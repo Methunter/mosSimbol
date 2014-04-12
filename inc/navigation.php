@@ -1,4 +1,6 @@
-
+<?php
+test:
+?><!-- <link rel="stylesheet" href="../stylesheets/style.css"  type="text/css" media="screen" charset="utf-8">-->
 <nav>
 
 	<div id="bout">
@@ -37,3 +39,8 @@
 	<input id="button" type="submit" value="Найти">
 
 </nav>
+<br />
+<div id="backCon">Обратная связь</div>
+<?php
+	//require_once("piece.partners.php");
+?>

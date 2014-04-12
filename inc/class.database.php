@@ -75,7 +75,7 @@ require("config.php");
 			}
 			$raw=mysql_fetch_array($result);
 //			mysql_close($this->connection);
-			mysql_free_result($result);
+			//mysql_free_result($result);
 			self::close_connection();
 
 		}
@@ -166,6 +166,20 @@ require("config.php");
 			self::close_connection();
 
 		}
+		 public function makeOrder($posession){
+ 			$sameItems=$db->fieldTest($posession);
+			$fields=["item","quanr","PHPSID","preview"];
+			$data =[ $posession,1, "'".$db->phpsessid."'",	"'i add it late, when i\'ll make corresponding table'"	];
+			if($sameItems==0){
+			$db->insInTbl($fields, $data);
+		}else{
+			for($i=0; $i!== count($posession);$i++){
+				echo "test" . $posession[$i];
+				$res = $db->fieldUpdate($posession[$i], $quantity[$i]);
+				
+			}
+		}
+ 		}
 		
 	}//school is out
 	

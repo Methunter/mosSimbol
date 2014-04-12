@@ -10,7 +10,7 @@ body{
 	
 }
 header{
-
+	padding-left: 158px;
 	background-repeat: no-repeat;
 	background-position: 5% 50%;
 	border-bottom: 1px solid #325085;
@@ -25,12 +25,13 @@ header{
 	box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,.2);
 	position: relative;
 	float: left;
+	left: 212px;
 	width: 1024px;
 	min-height: 750px;
 	
 }
 #content{
-	padding: 30px 0px 40px 280px;
+	padding: 30px 0px 40px 220px;
 	max-width: 960px;
 }
 
@@ -127,18 +128,18 @@ a:visited{
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
 	width:	380px;
 	height: 380px;
-	position: relative;
-	top: -360px;
+	position: absolute;
+	top: 30px;
 }
 #map{
 	width: 380px;
 	height:380px;
-	background-image: url("/images/map.gif");
+	/*background-image: url("/images/map.gif");*/
 }
 #info{
 	position: relative;
 	float: left;
-	top: -370px;
+	top: 90px;
 }
 #info img{
 	width: 560px;
@@ -154,6 +155,11 @@ a:visited{
 	left: 10px;
 	top:80px;
 }
+#moreTrace{
+	position: relative;
+	float: left;
+	top:80px;
+}
 
 /* Navigation
 **********************************/
@@ -162,7 +168,7 @@ nav{
 	position: relative;
 	float: left;
 	top: 30px;
-	left:55px;
+	left:10px;
 	border: 1px solid #dad7d1;
 	width: 198px;
 	text-align: center;
@@ -239,6 +245,61 @@ nav p{
 	z-index: -10;
 }
 
+
+#backCon{
+	background: #ece9df;
+ 	position: absolute; 
+ 	float: left; 
+	top: 560px;
+	left: 10px;
+	border: 2px solid #d8d3c2;
+	border-bottom: 2px solid b0a896;
+	width: 196px;
+	height: 2em;
+	text-align: center;
+	cursor: pointer;
+	background: #ece7dc; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ece7dc 0%, #c7c1b2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ece7dc), color-stop(100%,#c7c1b2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ece7dc 0%,#c7c1b2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ece7dc 0%,#c7c1b2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ece7dc 0%,#c7c1b2 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ece7dc 0%,#c7c1b2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ece7dc', endColorstr='#c7c1b2',GradientType=0 ); /* IE6-9 */
+	padding-top: 10px;
+	font-family: verdana;
+	box-shadow: 0px 20px 10px -13px rgba(0,0,0,.7);
+
+}
+#partners{
+	position: absolute;
+	float: left;
+	top: 640px;
+	background: #ece9df;
+	width: 200px;
+	padding: 30px 15px;
+	text-align: center;
+	color: #67645b;
+	font-family: Tahoma;
+	box-shadow: 0px 20px 10px -13px rgba(0,0,0,.7);
+
+}
+#partners:before{
+	content: "Наши заказчики";
+	cursor: pointer;
+
+}
+#partners img{
+	padding-left: 3px;
+	padding-top: 3px;
+	cursor: pointer;
+}
+#partnersWindow{
+	width: 200px;
+	height: 334px;
+	overflow: hidden;
+}
+
 /* Catalog
 *********************************/
 #catalog{
@@ -290,12 +351,38 @@ nav p{
 	top: -30px;
 
 }
+#order{
+	width: 100px !important;
+	height: 40px!important;
 
+	line-height: 2.2em;
+	font-size: 1.3em;
+}
+.catlist a{
 
+}
+.folderDelete{
+	position: relative;
+	float: left;
+	height: 25px;
+	width: 25px;
+	background: url('/images/cross.png') no-repeat;
+	background-position: 50% 50%;
+	background-size: 110%;
+	cursor: pointer;
+	z-index: 500;
+}
+.signItem > .folderDelete{
+	position: absolute;
+	top:0px;
+}
 
-/*
+/**********************************************]
+******************************************************
 	executives
-*/
+******************************************************
+**********************************************/
+
 .executive{
 	width: 800px;
 	height: 200px;
@@ -323,9 +410,11 @@ nav p{
 	height: 120px;
 	overflow: scroll;
 }
-/*
+/**********************************************]
+******************************************************
 	sector
-*/
+******************************************************
+**********************************************/
 #sector{
 	position: fixed;
 	float: left;
@@ -486,8 +575,25 @@ button#buy, #reserve , #continue{
 	left: 10px;
 
 }
-
-
+#box{
+	width: 640px;
+	height: 480px;
+	position: absolute;
+	float: left;
+	left: 550px;
+	top: 250px;
+	box-shadow: inset 1px 1px 15px 1px black;
+	overflow: scroll;
+	padding: 5px;
+}
+#wonderPic{
+	margin: 40px;
+	width: 100%;
+	height: 100%;
+	max-width: 560px;
+	max-height: 400px;
+	
+}
 
 
 .clearfix:after {
@@ -506,7 +612,7 @@ button#buy, #reserve , #continue{
 #aboutItem{
 	position: absolute;
 	float: left;
-	left: 900px;
+	left: 730px;
 	top: 300px
 }
 
@@ -519,8 +625,45 @@ button#buy, #reserve , #continue{
 	width: 78px;
 	margin: 10px 10px;
 }
+#myForm{
+	background: #ece9df;
+	width: 200px;
+	height: 100px;
+	padding:40px 20px;
+	border: 1px solid #dad7d1;
+	border-bottom: 1px solid  #a29e93;
+	box-shadow: 0px 20px 10px -13px rgba(0,0,0,.7);
+	text-align: justify;
 
+}
+#myForm #submit{
+	margin-left: 50px;
+	margin-top: 30px;
+	width: 100px;
+	line-height: 2em;
+	font-size: 2em;
+}
+/* our Global CSS file */
+article:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
+aside:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
+div:not(#nest ,.catlist):after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
+footer:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
+form:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
+header:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
+nav:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
+section:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
+ul:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
 
+/* our ie CSS file */
+article { zoom:1; }
+aside { zoom:1; }
+div { zoom:1; }
+footer { zoom:1; }
+form { zoom:1; }
+header { zoom:1; }
+nav { zoom:1; }
+section { zoom:1; }
+ul { zoom:1; }
 
 
 

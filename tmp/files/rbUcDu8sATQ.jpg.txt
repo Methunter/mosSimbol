@@ -1,0 +1,5 @@
+name = rbUcDu8sATQ.jpg
+type = image/jpeg
+tmp_name = /private/var/tmp/phpimqSaJ
+error = 0
+size = 60368
