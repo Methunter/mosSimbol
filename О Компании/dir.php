@@ -1,6 +1,6 @@
 <?php
-	require_once($_SERVER['DOCUMENT_ROOT'].'/inc/header.php');
-	require_once($_SERVER['DOCUMENT_ROOT'].'/inc/navigation.php');
+	require_once('header.php');
+	require_once('navigation.php');
 ?>					  
 		<div id="content">
 			<div id="ceotalk">
@@ -26,5 +26,5 @@
 			</div>	  
 		</div>		  
 <?php
-	require_once($_SERVER['DOCUMENT_ROOT']."/inc/footer.php");
+	require_once("footer.php");
 ?> 

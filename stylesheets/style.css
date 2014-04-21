@@ -7,26 +7,25 @@
 	margin: 0px;
 }
 body{
-	
+	background: url(/images/body_bg.jpg) no-repeat fixed;
 }
-header{
-	padding-left: 158px;
-	background-repeat: no-repeat;
-	background-position: 5% 50%;
-	border-bottom: 1px solid #325085;
-	height: 100px;
-	position: relative;
-	float: left;
-	width: 100%;
-}
-#room{
-	border-top: 1px solid #9e4e46;
+#room,header,footer{
+	background: white;
 	border-bottom: 1px solid #325085;
 	box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,.2);
 	position: relative;
 	float: left;
 	left: 212px;
 	width: 1024px;
+}
+header{
+	background-repeat: no-repeat;
+	background-position: 5% 50%;
+	height: 100px;
+
+}
+#room{
+	border-top: 1px solid #9e4e46;
 	min-height: 750px;
 	
 }
@@ -94,13 +93,12 @@ footer{
 	text-align: center;
 	border-top: 1px solid #9e4e46;
 	padding-top: 20px;
-	width: 100%;
 	height: 100px;
 }
 img#img{
 	position: relative;
 	float: left;
-	left: 55px;
+	left: 10px;
 	top:13px;
 }
 
@@ -594,8 +592,21 @@ button#buy, #reserve , #continue{
 	max-height: 400px;
 	
 }
+.clearfix {
+  *zoom: 1;
+}
 
+.clearfix:before,
+.clearfix:after {
+  display: inline-table;
+  line-height: 0;
+  content: "";
+}
 
+.clearfix:after {
+  clear: both;
+}
+/*
 .clearfix:after {
   display: inline-block;
   line-height: 0;
@@ -603,7 +614,7 @@ button#buy, #reserve , #continue{
 }
 .clearfix:after {
   clear: both;
-}
+}*/
 
 
 /*
@@ -646,7 +657,7 @@ button#buy, #reserve , #continue{
 /* our Global CSS file */
 article:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
 aside:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
-div:not(#nest ,.catlist):after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
+div:not(#flavor_2, .catlist):after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
 footer:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
 form:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
 header:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
@@ -666,5 +677,7 @@ section { zoom:1; }
 ul { zoom:1; }
 
 
-
+#flavor_2{
+	width:790px
+}
 

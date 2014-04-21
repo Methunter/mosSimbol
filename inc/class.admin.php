@@ -1,11 +1,8 @@
 <?php
-
-/*
-	нормально грузятся фотки.
-*/
 class Admin{
 	public $lvl;
-	public function folderForm($lvl){
+
+	public  function folderForm($lvl){
 		$this->lvl = $lvl;
 		$dom = new DOMDocument('1.0', 'utf-8');
 		$root = $dom->createElement('form');
@@ -33,7 +30,8 @@ class Admin{
 		$dom->appendChild($root);
 
 		echo $dom->saveXML();
-	}
+		/*return $dom->saveXML();*/
+	 }
 	public function moveToTrash($curPath ,$folderName ){
 		//curPath приходит из script.js  <---->настоящий адрес (/Каталог/ и так далее)
 		//folderName приходит из script.js  <---->имя рабочей папки
@@ -51,7 +49,7 @@ class Admin{
 		//echo "[Class.Admin.php::folderRemove] :\n __FILE__". __FILE__."\n";						//	и разбирательства по поводу файлов, чё
 		//echo "\n[Class.Admin.php::folderRemove] :\n папка: ".$wFolder."\n Файл: \t".$wFolder."/index.php";	//	куда. 
 		//echo " \n\n[Class.Admin.php::folderRemove] :\n getcw".getcwd();						//	
-		date_default_timezone_set('Europe/Moscow');
+		/*date_default_timezone_set('Europe/Moscow');*/
 		echo "\n[Class.Admin.php::folderRemove] :\n wFolder! ".$wFolder."\n";					//	из серии:
 		$newFolderInTrash = $trash."_".$carpeDiem;
 		rename($wFolder, $newFolderInTrash);
@@ -95,7 +93,7 @@ class Admin{
 				}
 			}
 		//}
-	echo "[admBiz->makeFolder] : Finished working";
+		echo "[admBiz->makeFolder] : Finished working";
 	 }
 	public function photoForm(){
 		$dom = new DOMDocument('1.0', 'utf-8');
@@ -104,98 +102,116 @@ class Admin{
 		$root->setAttribute('id','photoForm');
 		$root->setAttribute('method','POST');
 		$root->setAttribute("enctype","multipart/form-data");
-		//$root->setAttribute('action',"/inc/cases.php");			//Вот попробуем через cases, если чё бекап ниже. 
-		//$root->setAttribute('action',$_SERVER['PHP_SELF']);			//АТТЕНШЕН! файл работает сам в себя! 
-		$root->setAttribute('action','upldPhotos.php');			//АТТЕНШЕН! файл работает сам в себя! 
-											//нормальная, к стати, тема, для вставки "делай фотки" в 
-		$label=$dom->createElement("label");				//контент...
-		$label->setAttribute('for','folderName');				//
-		$label->setAttribute('name','photoUpload');					
+		//$root->setAttribute('action',"/inc/cases.php");	//Вот попробуем через cases, если чё бекап ниже. 
+		$root->setAttribute('action',$_SERVER['PHP_SELF']);	//АТТЕНШЕН! файл работает сам в себя! 
+									//нормальная, к стати, тема, для вставки "делай фотки" в 
+		$label=$dom->createElement("label");		//контент...
+		$label->setAttribute('for','folderName');		//
+		$label->setAttribute('name','photoUpload');			
 		$upload = $dom->createTextNode("Загрузить");
-		$label->appendChild($upload);					//про первый инпут
-		$file = $dom->createElement("input");				//про первый инпут	
-		$file->setAttribute("type","file");					//про первый инпут
-		$file->setAttribute("name","filename");				//про первый инпут				
+		$label->appendChild($upload);			//про первый инпут
+		$file = $dom->createElement("input");		//про первый инпут	
+		$file->setAttribute("type","file");			//про первый инпут
+		$file->setAttribute("name","filename");		//про первый инпут				
 		$buton = $dom -> createElement("input");
 		$buton->setAttribute("type","submit");
 		$buton->setAttribute("value","Загрузить");
-		$buton->setAttribute("id","buttonUpload");				//Таким образом имеем всего:
-		$fakeInp = $dom->createElement("input");					//	фейковый инпут
-		$fakeInp->setAttribute("style","display:none");				//	который не видать, 
-		$fakeInp->setAttribute("type","text");					//	передаёт команду в cases
-		$fakeInp->setAttribute("name","action");					//	в элементе action
-		$fakeInp->setAttribute("value","photoUpload");				//					Я молодец!
+		$buton->setAttribute("id","buttonUpload");		//Таким образом имеем всего:
+		$fakeInp = $dom->createElement("input");		//	фейковый инпут
+		$fakeInp  ->setAttribute("type","hidden");			
+		$fakeInp->setAttribute("name","action");		//	в элементе action
+		$fakeInp->setAttribute("value","photoUpload");	//		Я молодец!
 		
 		$lkInp4Path = $dom->createElement("input");			
 		$lkInp4Path->setAttribute("type","hidden");			
 		$lkInp4Path->setAttribute("name","fullCurPath");		
 		$lkInp4Path->setAttribute("value",getcwd());	
 		
-		$fkFrom = $dom->createElement("input");
-		$fkFrom->setAttribute("type","hidden");	
-		$fkFrom->setAttribute("name","from");
-		$fkFrom->setAttribute("value",'php');	
-
-		$root->appendChild($label);						//Лейбл
-		$root->appendChild($file);						//файловый инпут
-		$root->appendChild($buton);						//да кнопку
-		//	$dom->appendChild($buton);						//да кнопку
-		$root->appendChild($fakeInp);						//и фейковый инпут.
-		$root->appendChild($lkInp4Path);						//и фейковый инпут.
-		$root->appendChild($fkFrom);						//и фейковый инпут.
+		 /*	$fkFrom = $dom->createElement("input");
+		 	$fkFrom->setAttribute("type","hidden");	
+		 	$fkFrom->setAttribute("name","from");
+		 	$fkFrom->setAttribute("value",$prevNameInCurrentPhoto);	 
+		 	$noExt = $dom->createElement("input");					//	фейковый инпут
+		 	$noExt->setAttribute("type","hidden");			
+		 	$noExt->setAttribute("name","action");					//	в элементе action
+		 	$noExt->setAttribute("value",$noExtUpload);				//					Я молодец!
+		 	$root->appendChild($fkFrom);						//и фейковый инпут.
+		 	$root->appendChild($noExt);						//и фейковый инпут.
+		 */
+		$root->appendChild($label);			//Лейбл
+		$root->appendChild($file);			//файловый инпут
+		$root->appendChild($buton);			//да кнопку
+		$root->appendChild($fakeInp);		//и фейковый инпут.
+		$root->appendChild($lkInp4Path);		//и фейковый инпут.
 		
 		$dom->appendChild($root);
 		echo $dom->saveXML();
-		echo '<pre>';
-		print_r($_POST);
-		echo '</pre>';
-		$date = $GLOBALS['date'];
+		 /*	echo '<pre>';
+		 	print_r($_POST);
+		 	echo '</pre>';
+		  */
+	 
 	 }
 	public function photoAdd($pathToCurrentFolder){
-		if (isset($_FILES['filename'])) {
-			$itW = fopen($_SERVER['DOCUMENT_ROOT']."/tmp/files/".$_FILES['filename']['name'].".txt", "c+");
-			foreach ($_FILES['filename'] as $key => $value) {
-				fwrite($itW, $key." = ".$value.PHP_EOL);
-
-			}
-			fclose($itW);
-		}
+		$names_I_Have = array();
 		$allowedExts = array("jpg", "jpeg", "gif", "png","jp2"); 
-		$currentFileExtension = strtolower(end(explode(".", $_FILES["filename"]["name"]))); 
-		$fullPathToTempFile = $_FILES["filename"]["tmp_name"];
+		$_SESSION['names']=array();
+		$_SESSION['names']['I__H']=$names_I_Have;
 		$mimeTypes = ["image/gif","image/jpeg", "image/jp2", "image/png","image/pjpeg"];
 		$photoCounter = 0;
-		$destination =  $pathToCurrentFolder."/". $_FILES["filename"]["name"];		//имя и расширение
 		$d=dir($pathToCurrentFolder);
 		while (false !== ($entry = $d->read())){
-			if (strtolower(end(explode(".", $entry)))=="jpg") {
+			$crushedEntry= explode (".", $entry);
+			if ( strtolower ( end  ($crushedEntry))=="jpg") {
+				$names_I_Have[$photoCounter]=(explode(".",$entry)[count((explode(".",$entry)))-2]);
 				$photoCounter++;
+				$input = explode(".", $entry);
+				/*echo "<pre>" .$entry;
+				print_r(array_slice($input, 0, 2)); 
+				echo "</pre>";*/
+				// array_push($names_I_Have ,(explode(".",$entry)[count((explode(".",$entry)))-2]));
+
 			}
 		}
 		$d->close();
-		$fullPathToFinalJpgFile = $pathToCurrentFolder."/".basename($pathToCurrentFolder).$photoCounter.".jpg";
-		$fullPathToFinalPngFile = $pathToCurrentFolder."/".basename($pathToCurrentFolder).$photoCounter.".png";
 
-		if (in_array($_FILES["filename"]["type"] , $mimeTypes)
-		&& ($_FILES["filename"]["size"] < 1024*2*1024) 
-		&& in_array($currentFileExtension, $allowedExts)){
-			if ($_FILES["filename"]["error"] > 0) { 
-				echo "Return Code: " . $_FILES["filename"]["error"] . "<br>"; 
-			}else { 
-			echo "<ul style=\"list-style:none\"><li>Upload: " . $_FILES["filename"]["name"] . "</li>"; 
-				echo 		"<li>Type: " . $_FILES["filename"]["type"] . "</li>"; 
-				echo 		"<li>Size: " . ($_FILES["filename"]["size"] / 1024) . " kB</li>"; 
-				echo 		"<li>Temp file: " . $_FILES["filename"]["tmp_name"] . "</li></ul>"; 
+		if (isset($_FILES["filename"])){
+			$destination =  $pathToCurrentFolder."/". $_FILES["filename"]["name"];		//имя и расширение
+			$fullPathToTempFile = $_FILES["filename"]["tmp_name"];
+			$cuttenName=explode(".", $_FILES["filename"]["name"]);
+			$currentFileExtension = strtolower(end(($cuttenName))); 
+			$fullPathToFinalJpgFile = $pathToCurrentFolder."/".basename($pathToCurrentFolder)."_".$photoCounter."-"
+			.current(explode(".",$_FILES['filename']['name'])).".jpg";
+			$fullPathToFinalPngFile = $pathToCurrentFolder."/".basename($pathToCurrentFolder)."_".$photoCounter."-".
+			current(explode(".",$_FILES['filename']['name'])).".png";
+				
+			if(in_array($_FILES["filename"]["type"] , $mimeTypes)
+			&& ($_FILES["filename"]["size"] < 1024*2*1024) 
+	  		&& in_array($currentFileExtension, $allowedExts)){
 
-				if (($_FILES["filename"]["name"] =$_SESSION['previouslyLoadedPhotos'])) { 
-					echo $_FILES["filename"]["name"] . " уже есть. "; 
-				} else { 
-					if (!file_exists($fullPathToFinalJpgFile)) {
-						copy 			($_FILES["filename"]["tmp_name"],	$fullPathToFinalPngFile);
-						move_uploaded_file 	($_FILES["filename"]["tmp_name"],	$fullPathToFinalJpgFile); 
-						echo "Stored in:  $fullPathToFinalJpgFile"; 
-					}
-			 	} 
+				if ($_FILES["filename"]["error"] > 0) { 
+					echo "Return Code: " . $_FILES["filename"]["error"] . "<br>"; 
+				}else { 
+				echo "<ul style=\"list-style:none\"><li>Upload: " . $_FILES["filename"]["name"] . "</li>"; 
+					echo 		"<li>Type: " . $_FILES["filename"]["type"] . "</li>"; 
+					echo 		"<li>Size: " . ($_FILES["filename"]["size"] / 1024) . " kB</li>"; 
+					echo 		"<li>Temp file: " . $_FILES["filename"]["tmp_name"] . "</li></ul>"; 
+					$prevNameInCurrentPhoto =(explode(".",$fullPathToFinalJpgFile));
+					$prevNameInCurrentPhoto =$prevNameInCurrentPhoto [count(	$prevNameInCurrentPhoto)-2];
+					echo 'type is: '.gettype($prevNameInCurrentPhoto);
+					$noExtUpload = current(explode(".",$_FILES["filename"]["name"])) ;
+					$_SESSION['names']['noExt']=$noExtUpload;
+					$_SESSION['names']['prevName']=(explode(".",$fullPathToFinalJpgFile)[count((explode(".",$fullPathToFinalJpgFile)))-2]);
+					if ( in_array($noExtUpload, $names_I_Have)) { 
+						echo"\n\n\t\n<br />" .$_FILES["filename"]["name"] . " уже есть. \n<br />\n"; 
+					} else { 
+						if (!file_exists($fullPathToFinalJpgFile)) {
+							copy 			($_FILES["filename"]["tmp_name"],	$fullPathToFinalPngFile);
+							move_uploaded_file 	($_FILES["filename"]["tmp_name"],	$fullPathToFinalJpgFile); 
+							echo "Stored in:  $fullPathToFinalJpgFile"; 
+						}
+				 	} 
+				}
 			}
 		} else { 
 			if (isset($_FILES['filename'])) {
@@ -207,18 +223,18 @@ class Admin{
 			}
 		}
 
-	}
+	 }
 	public function descForm(){
 		$dom = new DOMDocument('1.0', 'utf-8');
 		$root = $dom->createElement('form');
 		$root->setAttribute('accept-charset','utf-8');
-		$root->setAttribute('method','POST');
 		$root->setAttribute('id','itemDescriptionForm');
-		$root->setAttribute('action','/inc/cases.php');
+		//$root->setAttribute('method','POST');
+		//$root->setAttribute('action','/inc/cases.php');
 		$textarea = $dom->createElement("textarea");
 		$textarea->setAttribute("type","textarea");
 		$textarea->setAttribute("form","itemDescriptionForm");
-		$textarea->setAttribute("name","descForm");
+		//$textarea->setAttribute("name","descForm");
 		$textarea->setAttribute("id","descForm");
 		$textarea->setAttribute("cols","75");
 		$textarea->setAttribute("raws","50");
@@ -228,41 +244,45 @@ class Admin{
 		$buton=$dom->createElement("input");
 		$buton->setAttribute("type","submit");
 		$buton->setAttribute("id","actionCreateDesc");
-		$buton->setAttribute("name","descButton");
-		$fakeInp = $dom->createElement("input");					//	фейковый инпут
-		$fakeInp->setAttribute("style","display:none");				//	который не видать, 
-		$fakeInp->setAttribute("type","text");					//	передаёт команду в cases
-		$fakeInp->setAttribute("name","action");					//	в элементе action
-		$fakeInp->setAttribute("value","deskForm");				//					Я молодец!
+		//$buton->setAttribute("name","descButton");
+
+		$fakeInp = $dom->createElement("input");	//фейковый инпут который не видать, 
+		$fakeInp->setAttribute("type","hidden");	//передаёт команду в cases
+		$fakeInp->setAttribute("name","action");	//в элементе action
+		$fakeInp->setAttribute("value","setDescription");//		Я молодец!
 
 		$textarea->appendChild($fuf);
 
-		$root->appendChild($buton);
 		$root->appendChild($textarea);
-		$root->appendChild($fakeInp);
+		$root->appendChild($buton);
+		// $root->appendChild($fakeInp);
+		
 		$dom->appendChild($root);
-
 		echo $dom->saveXML();
+
+		//self::appendDescription(getcwd(),$_POST['text']);
 	 }
-	public function appendDescription($fullCurrentPath,$itemDescriprion){
+	/*public function appendDescription($fullCurrentPath,$itemDescriprion){
+		echo "[admBiz->appendDescription] :\n $itemDescriprion";
 		$itemDescriprion = fopen($fullCurrentPath."/about.txt", 'c+');
-		fwrite($fullCurrentPath, $fullCurrentPath);
+		//fwrite($itemDescriprion, $itemDescriprion);
 		fclose($itemDescriprion);
 	 }
+	*/
+ 	public function deskAdd($path,$descriptionText){
+		$handle = fopen($path."/about.txt", 'c+');
+	
+		$write = fwrite($handle, $descriptionText);
+		fclose($handle);
+		/*		if(file_put_contents($path."/about.txt", $descriptionText)){
+					echo "rigdt";
+				}
+		*/		echo "<pre> descAdd _POST: ";
+			print_r($_POST);
+		echo "</pre>\n path: $path/about.txt\n
+		text : '$descriptionText' is type of: ".gettype($descriptionText)."\n
+		write = $write\n
+		descAdd End.";
+		 }
 }
-$admBiz = new Admin; 
-
-/*
-	<index.php>
-		<page.content.php>
-			<class.page.php></class.page.php>
-			<class.admin.php>
-				<script.js></script.js>
-				<cases.php></cases.php>
-			</class.admin.php>
-		</page.content.php>
-	</index.php>
-
-
-*/
 ?>

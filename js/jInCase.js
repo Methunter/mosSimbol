@@ -614,7 +614,7 @@
 						
 			if ( this.options.preload.active ) {
 				
-/*				TODO: loading image, need to remove on load callback
+/*				: loading image, need to remove on load callback
 				
 					this.slidesContainer.css({
 						backgroundImage: "url(" + this.options.preload.image + ")",
@@ -672,7 +672,7 @@
 		_loaded: function() {
 			if ( this.options.responsive ) {
 				
-				// TODO: cleanup and condense
+				// : cleanup and condense
 //				this.slidesContainer.css({
 //					height: this.slides.height()
 //				});
@@ -990,7 +990,7 @@
 		_setOption: function(key, value) {
       switch(key) {
 				/*
-					TODO: This needs work, note status function use of this[key]
+					: This needs work, note status function use of this[key]
 					$("#slides").slides("option","pagination", false);
 				
         case "pagination":

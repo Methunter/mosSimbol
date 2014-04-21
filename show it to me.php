@@ -1,5 +1,5 @@
 <?php
-	function showItToMe(){
+	function prepareGallery(){
 		$d = dir(".");
 		while (false !== ($entry = $d->read())){
 			if(is_dir($entry)
@@ -19,8 +19,6 @@
 				chdir("$entry");
 				$d1=dir(".");
 				while (false !== ($entry1 = $d1->read())){
-
-
 						if($entry1 == "about.txt"){
 					   		$txtAbout=file("about.txt");
 					   		$txtAbout= $txtAbout[0];
@@ -29,7 +27,6 @@
 					   		$about->appendChild($textAbout);
 					   		$about->setAttribute("class","about");
 					   		$root->appendChild($about);
-					   		
 					  }
 				   		if (!is_dir($entry1)
 				   		&& $entry1 !=="about.txt"){
@@ -39,18 +36,12 @@
 							$li->appendChild($img);
 							$mng->appendChild($li);
 							$img->setAttribute("class","pic");
-				   		
-				   		
 						}
 						$root->appendChild($mng);
-						
 				}
-				
-				
 				$d1->close();
 			   	chdir("..");
 			   	echo $dom->saveXML();
-			   	
 		   }
 		 //  chdir("../");
 		}

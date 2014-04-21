@@ -1,8 +1,9 @@
 <?
-	require_once($_SERVER['DOCUMENT_ROOT'].'/inc/class.database.php');
+	require_once("class.class.msbMysqli.php");
 	date_default_timezone_set('Europe/Moscow');
 	$isUpd = null;
 	$posession = array();
+	$picture = 
 	if(isset($_POST['isUpd'])){
 		$isUpd = $_POST['isUpd'];
 		$_POST['isUpd'] = 0;
@@ -23,8 +24,8 @@
 	//$quantity = $_POST["quantity"];
 	$db = new Database('orderTest');
 	
-	$fields=	[		"item"		,	"quanr"		,		"PHPSID"			,						"preview"							];
-	$data =		[ $posession 		,	$quantity	, "'".$db->phpsessid."'"	,	"'i add it late, when i\'ll make corresponding table'"	];
+	$fields=["item",	"quanr","PHPSID","preview"];
+	$data =[ $posession,$quantity, "'".$db->phpsessid."'","'"$picture"'"];
 
 	$sameItems=$db->fieldTest($posession);
 	if(isset($isUpd)){//fieldUpdate($posession, $quantity)

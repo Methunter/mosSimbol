@@ -544,7 +544,6 @@
 			direction: "left", // [String] Define the slide direction: "Up", "Right", "Down", "left"
 			fade: {
 				interval: 1000, // [Number] Interval of fade in milliseconds
-				crossfade: false, // [Boolean] TODO: add this feature. Crossfade the slides, great for images, bad for text
 				easing: "" // [String] Dependency: jQuery Easing plug-in <http://gsgd.co.uk/sandbox/jquery/easing/>
 			},
 			slide: {
@@ -559,7 +558,6 @@
 			startAtSlide: 1, // [Number] What should the first slide be?
 			playInterval: 5000, // [Number] Time spent on each slide in milliseconds
 			pauseInterval: 8000, // [Number] Time spent on pause, triggered on any navigation or pagination click
-			autoHeight: false, // [Boolean] TODO: add this feature. Auto sets height based on each slide
 			navigateStart: function( current ){
 				// console.log( "navigateStart: ", current );
 			},
@@ -634,7 +632,6 @@
 						
 			if ( this.options.preload.active ) {
 				
-/*				TODO: loading image, need to remove on load callback
 				
 					this.slidesContainer.css({
 						backgroundImage: "url(" + this.options.preload.image + ")",
@@ -692,7 +689,6 @@
 		_loaded: function() {
 			if ( this.options.responsive ) {
 				
-				// TODO: cleanup and condense
 				this.slidesContainer.css({
 					height: this.slides.height()
 				});
@@ -1010,7 +1006,6 @@
 		_setOption: function(key, value) {
       switch(key) {
 				/*
-					TODO: This needs work, note status function use of this[key]
 					$("#slides").slides("option","pagination", false);
 				
         case "pagination":

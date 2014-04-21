@@ -1,9 +1,7 @@
 <?php
 session_save_path("/tmp");
 session_start();
-if (isset($_SESSION['reload'])) {
-    header("Location: index.php");
-}
+
     
 ?>
 <!DOCTYPE html>

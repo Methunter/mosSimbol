@@ -1,20 +1,5 @@
-<?
-//	echo $_SERVER['DOCUMENT_ROOT'];
-//	include($_SERVER['DOCUMENT_ROOT']."/inc/header.php");
-
-/*
-	include("/inc/navigation.php");
-*/
-	include_once($_SERVER['DOCUMENT_ROOT']."/inc/class.database.php");
-/* 	include_once('header.php'); */
-?>	
-
-
-
-<?php
-	//здесь очень многое нужно убрать..
-?>
-<script type="text/javascript" src="/js/script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+<script type ="tetx/javascript" src="/js/script.js"></script>
 <div id="content">
 	<div id="sector">
 		<div id="pannel">
@@ -45,8 +30,8 @@
 					</div>
 					<div id="shopList">
 						<?php
-							$orderTest = new Database("orderTest");
-							$orderTest->showPurchases();
+							$msbMysqli = new msbMysqli("orderTest");
+							$msbMysqli->showPurchases();
 						?>
 					</div>
 					<div id="checkboxes">
@@ -95,6 +80,3 @@
 			});
 		</script>
 
-<?php
-//	include("/inc/footer.php");
-?>

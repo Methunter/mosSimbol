@@ -41,7 +41,8 @@ class Menu{//класс, формирующий меню...
 		$this->dom->appendChild($root);
    		echo $this->dom->saveXML();
    	 }
-	function nest(){							//так, ещё раз:
+	function nest(){		
+		$aherf = '';					//так, ещё раз:
 		$this->my_Self = $_SERVER['PHP_SELF'];			//забераем полный адрес от корня до файла в строку.
 		$this->nest = explode('/', $this->my_Self);				//ломаем строку на массив, по папке на элемент.
 		array_pop($this->nest);					//выкидываем из массива имя файла.
@@ -197,6 +198,5 @@ class Menu{//класс, формирующий меню...
 		
 	
 }//end of class
-$menu = new Menu;
 ?>
 

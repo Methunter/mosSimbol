@@ -1,65 +1,79 @@
 <?php
-	require_once($_SERVER['DOCUMENT_ROOT']."/inc/class.page.php");
-	require_once($_SERVER['DOCUMENT_ROOT']."/inc/class.debug.php");
-	//require_once($_SERVER['DOCUMENT_ROOT']."/inc/class.menu.php");
-	require_once($_SERVER['DOCUMENT_ROOT']."/inc/functions.php");
-	require_once($_SERVER['DOCUMENT_ROOT']."/inc/class.database.php");
-	require_once($_SERVER['DOCUMENT_ROOT']."/inc/class.order.php");
-	require_once($_SERVER['DOCUMENT_ROOT']."/inc/class.admin.php");
+    session_save_path("/tmp");
+    session_start();
+	spl_autoload_register(function ($classname) {
+   		 include "class.". $classname .".php";
+	});
+	$admBiz = new Admin;
 			//Так, раз уж такая пьянка, можно создавать отдельный элемент массива, cases, например, и свитчём его прогонять на экшны.
 			//а пока так...
 	$fullcurrentpathPHP=$_POST['fullCurPath'];
 	$currentlvlPHP = $_POST['curLvl'];					//приходит из script.js  <---->настоящий уровень страницы
 	$curpathPHP = $_POST['curPath'];	//приходит из script.js  <---->настоящий адрес (/Каталог/ и так далее)
-	$foldnamePHP = $_POST['folderName'];				//приходит из script.js  <---->имя рабочей папки
-	$debugInfo = "\n<br />[Cases.php] : __DIR__ is : ".__DIR__."\n<br />[Cases.php] : _SERVER['ROOT'] is : ".$_SERVER['DOCUMENT_ROOT']."\n<br />[Cases.php] : getcwd() is : ".getcwd()."\n<br />[Cases.php] : php self is : ".$_SERVER['PHP_SELF']."<br />\n[Cases.php] : CP: $curpathPHP\n[Cases.php] : FN: $foldnamePHP\n[Cases.php] : FCP: $fullcurrentpathPHP\n";
-
+	$foldernamePHP = $_POST['folderName'];				//приходит из script.js  <---->имя рабочей папки
+	$debugInfo = "\n<br />[Cases.php] : __DIR__ is : ".__DIR__."\n<br />[Cases.php] : _SERVER['ROOT'] is : ".$_SERVER['DOCUMENT_ROOT']."\n<br />[Cases.php] : getcwd() is : ".getcwd()."\n<br />[Cases.php] : php self is : ".$_SERVER['PHP_SELF']."<br />\n[Cases.php] : CP: $curpathPHP\n[Cases.php] : FN: $foldernamePHP\n[Cases.php] : FCP: $fullcurrentpathPHP\n";
+	
+	// $msbOTmsqli = new msbMysqli('orderTest');
 	//$d=dir(".");
 
-	if (isset($_POST['action'])){
+	if (isset($_POST['action'])){	
 		switch ($_POST['action']) {
-
+			case 'order':
+				if($msbOTmsqli instanceof msbMysqli){
+				$msbOTmsqli->makeOrder($fullcurrentpathPHP);
+					$posession=end(explode("/", $fullcurrentpathPHP));
+					$isThisField=$msbOTmsqli->isThisField($posession);
+				 }
+				// unset($_POST['action']);
+			 break;
 			case 'mkDir':
-				echo "[Cases.php?action:mkDir] : working...\n[Cases.php] :  CP: $curpathPHP\n[Cases.php] : FN: $foldnamePHP\nFCP: $fullcurrentpathPHP\n"; 
-				$admBiz->makefolder($fullcurrentpathPHP."/".$foldnamePHP,$currentlvlPHP);
+				echo "[Cases.php?action:mkDir] : working...\n[Cases.php] :  CP: $curpathPHP\n[Cases.php] : FN: $foldernamePHP\nFCP: $fullcurrentpathPHP\n"; 
+				$admBiz->makefolder($fullcurrentpathPHP."/".$foldernamePHP,$currentlvlPHP);
 				unset($_POST['action']);
-				break;
+			 break;
 			case 'delete':
-				//echo "[Cases.php->action:delete] : working...\n[Cases.php] :  CP: $curpathPHP\n[Cases.php] : FN: $foldnamePHP\nFCP: $fullcurrentpathPHP\n"; 
-				$admBiz->moveToTrash($fullcurrentpathPHP,$foldnamePHP);
+				//echo "[Cases.php->action:delete] : working...\n[Cases.php] :  CP: $curpathPHP\n[Cases.php] : FN: $foldernamePHP\nFCP: $fullcurrentpathPHP\n"; 
+				$admBiz->moveToTrash($fullcurrentpathPHP,$foldernamePHP);
 				unset($_POST['action']);
-				break;
-			case 'deskForm':
-				$admBiz->deskAdd($_POST['deskForm']);
-				unset($_POST['action']);
-				break;
+			 break;
 			case 'photoUpload':
-				echo "[Cases.php?action:photoUpload] : working...\n[Cases.php] :  CP: $curpathPHP\n[Cases.php] : FN: $foldnamePHP\nFCP: $fullcurrentpathPHP\n"; 
-				//$admBiz->photoAdd($fullcurrentpathPHP);
-				print_r($_FILES);
-				unset($_POST['action']);				
-
-				break;
-			case 'setDesc':
-				$admBiz->appendDescription($fullcurrentpathPHP, $_POST['text']);
+				echo "[Cases.php?action:photoUpload] : working...\n[Cases.php] :  CP: $curpathPHP\n[Cases.php] : FN: $foldernamePHP\nFCP: $fullcurrentpathPHP\n"; 
+				$admBiz->photoAdd($fullcurrentpathPHP);
+				echo "<pre>";
+				print_r($_POST);
+				echo "</pre>";
+				echo "<pre>";
+				print_r($_SESSION['names']);
+				echo "</pre>";
 				unset($_POST['action']);
+				unset($_FILES);
+			 break;
+			case 'setDescription':
+				$admBiz->deskAdd($fullcurrentpathPHP, $_POST['text']);
+				echo "cases: ".$_POST['test']."\n$fullcurrentpathPHP\n
+				if($msbOTmsqli instanceof msbMysqli){
+					$currentlvlPHP\n";
+					echo "<pre> cases _POST: ";
+						print_r($_POST);
+					echo "</pre>";
+				//unset($_POST['action']);
 				break;
-			case 'makeOrder':
-				$admBiz->makeOrder($foldnamePHP);
-				unset($_POST['action']);
-				break;
-		}
-	}
+			case 'deleteRaw' :
+				$msbOTmsqli->deleteRaw($_POST['name']);
+			 break;
+		 }
+	 }
+		
 
 
 //	if (isset($_POST['delete']) &&  $_POST['delete'] == "positive") {
-//			$admBiz->moveToTrash($curpathPHP,$foldnamePHP);
+//			$admBiz->moveToTrash($curpathPHP,$foldernamePHP);
 //			//
 //			//каменты для массовости
 //			}
 //	if (isset($_POST['action']) && $_POST['action'] == "mkDir") {
-//			$admBiz->makefolder($curpathPHP."/".$foldnamePHP,$currentlvlPHP);
-//			echo "[Cases.php?action:mkDir] : working...\n CP: $curpathPHP\nFN: $foldnamePHP"; 
+//			$admBiz->makefolder($curpathPHP."/".$foldernamePHP,$currentlvlPHP);
+//			echo "[Cases.php?action:mkDir] : working...\n CP: $curpathPHP\nFN: $foldernamePHP"; 
 //	}
 //	if (isset($_POST['action']) && $_POST['action'] == "photoUpdate") {
 //		echo "photo1";

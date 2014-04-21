@@ -1,6 +1,4 @@
-<?php
-test:
-?><!-- <link rel="stylesheet" href="../stylesheets/style.css"  type="text/css" media="screen" charset="utf-8">-->
+<!-- <link rel="stylesheet" href="../stylesheets/style.css"  type="text/css" media="screen" charset="utf-8">-->
 <nav>
 
 	<div id="bout">
@@ -42,5 +40,5 @@ test:
 <br />
 <div id="backCon">Обратная связь</div>
 <?php
-	//require_once("piece.partners.php");
+	//r'equire_once('piece.'partners.php');
 ?>
